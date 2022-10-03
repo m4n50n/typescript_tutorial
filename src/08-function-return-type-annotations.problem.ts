@@ -5,7 +5,7 @@ interface User {
   firstName: string;
   lastName: string;
   role: "admin" | "user" | "super-admin";
-  posts: Array<Post>;
+  posts: Post[];
 }
 
 interface Post {
@@ -17,8 +17,19 @@ interface Post {
  * How do we ensure that makeUser ALWAYS
  * returns a user?
  */
-const makeUser = () => {
-  return {};
+const makeUser = (): User => {
+  return {
+    id: 1,
+    firstName: "Jose",
+    lastName: "García",
+    role: "admin",
+    posts: [
+      {
+        id: 1,
+        title: "Hola Mundo"
+      }
+    ]
+  };
 };
 
 it("Should return a valid user", () => {
